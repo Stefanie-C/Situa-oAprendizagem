@@ -17,6 +17,5 @@ public interface UsuarioDAO {
     void deleteByIdUser(int idUsuario);
     
     Usuario findByIdUser(int idUsuario);
-    
-    List<Usuario> findAll();    
+
 }

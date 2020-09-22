@@ -19,8 +19,6 @@ import ModelEntities.Usuario;
     void deleteById(int idChamado);
 
     Chamado findById(int idChamado);
-
-    List<Chamado> findAll();
     
     List<Chamado> findByUser(Usuario user);
 

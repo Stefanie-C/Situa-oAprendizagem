@@ -7,32 +7,41 @@ package ModelEntities;
 import java.util.Date;
 
 public class Chamado {
-    private long idchamado;
+    private long idChamado;
     private String tituloChamado;
     private String descChamado;
     private Date data;
     private Usuario usuario;
-   
+    
+    private int idCategoriaChamado;
+    private int idSubcategoriaChamado;
+    private int idNivelUrgencia;
+    private int idStatusChamado;
     
     public Chamado() {
 
     }
 
-    public Chamado(long idhamado, String tituloChamado, String descChamado, Date data, Usuario usuario) {
-        this.idchamado = idchamado;
+    public Chamado(long idChamado, String tituloChamado, String descChamado, Date data,
+    Usuario usuario, int idCategoriaChamado, int idSubcategoriaChamado, int idNivelUrgencia, int idStatusChamado) {
+        this.idChamado = idChamado;
         this.tituloChamado = tituloChamado;
         this.descChamado = descChamado;
         this.data = data;
         this.usuario = usuario;
-       
+        
+        this.idCategoriaChamado = idCategoriaChamado;
+        this.idSubcategoriaChamado = idSubcategoriaChamado;
+        this.idNivelUrgencia = idNivelUrgencia;
+        this.idStatusChamado = idStatusChamado;
     }
 
-    public long getidchamado() {
-        return idchamado;
+    public long getidChamado() {
+        return idChamado;
     }
 
-    public void setidchamado(int id) {
-        this.idchamado = id;
+    public void setidChamado(int id) {
+        this.idChamado = id;
     }
 
     public String gettituloChamado() {
@@ -66,16 +75,53 @@ public class Chamado {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+    
+    /* ******************************* */
 
+    public int getIdCategoriaChamado() {
+        return idCategoriaChamado;
+    }
+
+    public void setIdCategoriaChamado(int idCategoriaChamado) {
+        this.idCategoriaChamado = idCategoriaChamado;
+    }
+
+    public int getIdSubcategoriaChamado() {
+        return idSubcategoriaChamado;
+    }
+
+    public void setIdSubcategoriaChamado(int idSubcategoriaChamado) {
+        this.idSubcategoriaChamado = idSubcategoriaChamado;
+    }
+
+    public int getIdNivelUrgencia() {
+        return idNivelUrgencia;
+    }
+
+    public void setIdNivelUrgencia(int idNivelUrgencia) {
+        this.idNivelUrgencia = idNivelUrgencia;
+    }
+
+    public int getIdStatusChamado() {
+        return idStatusChamado;
+    }
+
+    public void setIdStatusChamado(int idStatusChamado) {
+        this.idStatusChamado = idStatusChamado;
+    }
+
+    /* ******************************** */
     @Override
     public String toString() {
-        return "Chamado{" + "idchamado=" + idchamado + ", tituloChamado=" + tituloChamado + ", descChamado=" + descChamado + ", data=" + data + ", usuario=" + usuario + '}';
+        return "Chamado{" + "idChamado=" + idChamado + ", tituloChamado=" + tituloChamado + ", descChamado=" + descChamado + ", data=" + data + ", usuario=" + usuario + 
+                ", idCategoriaChamado" + idCategoriaChamado + ", idSubcategoriaChamado" + idSubcategoriaChamado + 
+                ", idNivelUrgencia " + idNivelUrgencia + ", idStatusChamado" +idStatusChamado + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = (int) (53 * hash + this.idchamado);
+        hash = (int) (53 * hash + this.idChamado);
         return hash;
     }
 
@@ -91,7 +137,7 @@ public class Chamado {
             return false;
         }
         final Chamado other = (Chamado) obj;
-        if (this.idchamado != other.idchamado) {
+        if (this.idChamado != other.idChamado) {
             return false;
         }
         return true;

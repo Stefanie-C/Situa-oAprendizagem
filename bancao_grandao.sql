@@ -1,6 +1,6 @@
 CREATE DATABASE sistema_chamados;
 
-USE sistema_chamados;	
+USE sistema_chamados;
 
 CREATE TABLE empresa (
 idEmpresa INT NOT NULL AUTO_INCREMENT,
@@ -122,6 +122,8 @@ INSERT INTO empresa VALUES
 (NULL, " Empresa Hiper", "Rua da Empresa Hiper", "51.615.488/0001-00"),
 (NULL, " Empresa Topzera", "Rua da Empresa Topzera", "84.488.361/0001-19");
 
+select * from empresa;
+
 /* insert filial */
 INSERT INTO filial VALUES
 (NULL, " Empresa Legal Stark ", "Rua da Empresa Legal Stark", "09.671.776/0001-07", 1),
@@ -135,6 +137,7 @@ INSERT INTO filial VALUES
 (NULL, " Empresa Hiper Lang ", "Rua da Empresa Hiper Lang", "51.615.488/0001-07", 9),
 (NULL, " Empresa Topzera T'challa", "Rua da Empresa Topzera T'challa", "84.488.361/0001-17", 10);
 
+select * from filial;
 
 /* insert setor */
 INSERT INTO setor VALUES
@@ -145,6 +148,8 @@ INSERT INTO setor VALUES
 (NULL,"Setor RH"),
 (NULL,"Setor Operacional");
 
+select * from setor;
+
 /* insert função */
 INSERT INTO funcao VALUES
 (NULL, "Assitente Admistrativo", 1),
@@ -154,10 +159,14 @@ INSERT INTO funcao VALUES
 (NULL, "Psicólogo (a)", 5),
 (NULL, "Operador (a) de ", 6);
 
+select * from funcao;
+
 /* insert  categoria_chamado */
 INSERT INTO categoria_chamado VALUES
 (1, "Hardware"),
 (2, "Software");
+
+select * from categoria_chamado;
 
 /* insert subcategoria chamado */
 INSERT INTO subcategoria_chamado VALUES
@@ -175,7 +184,9 @@ INSERT INTO subcategoria_chamado VALUES
 (NULL, " Formatação", 2 ),
 (NULL, " Instalação/Atualização Driver de Rede", 2 ),
 (NULL, " Criação de Usuário", 2 ),
-(NULL, " Suporte Remoto", 2 );
+(NULL, " Suporte Remoto", 2 ); 
+
+select * from subcategoria_chamado;
 
 /* insert nivel_urgencia */
 INSERT INTO nivel_urgencia VALUES 
@@ -185,16 +196,22 @@ INSERT INTO nivel_urgencia VALUES
 (4, "Razoável"),
 (5, "Baixo");
 
+select* from nivel_urgencia;
+
 /* insert status_chamado */
 INSERT INTO status_chamado VALUES
 (1, "Concluído"),
 (2, "Aguardando Retorno do Usuário"),
 (3, "Em espera");
 
+select * from status_chamado;
+
 /* insert usuario */
 INSERT INTO usuario VALUES 
 (NULL, "Admin"),
 (NULL, "Usuário");
+
+select * from usuario;
 
 /* insert funcionario */
 INSERT INTO funcionario VALUES
@@ -208,6 +225,8 @@ INSERT INTO funcionario VALUES
 (NULL, "Stephen Strange", "stephen@strange.com", "3521-0108", "157", 2, 2, 2, 8),
 (NULL, "Peter Quill", "peter@quill.com", "3521-0109", "158", 3, 3, 1, 9),
 (NULL, "Carol Danvers", "carol@danvers.com", "3521-0110", "159", 4, 4, 1, 10);
+
+select * from funcionario;
 
 /* insert chamado */
 INSERT INTO chamado VALUES
@@ -227,6 +246,4 @@ INSERT INTO chamado VALUES
 (NULL,"Crição de Usuário", "Criar user", '2020-10-01 14:05:00', 2, 1, 1, 1, 3),
 (NULL,"Suporte Remoto", "Suporte", '2020-10-01 14:10:00', 2, 1, 1, 1, 3);
 
-
-select * from usuario;
 select * from chamado;

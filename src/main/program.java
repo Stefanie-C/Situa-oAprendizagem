@@ -17,30 +17,27 @@ public class program {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+       
+        ChamadoDAO ChamadoDao = DaoFactory.createChamadoDao();
         
         System.out.println("*** CHAMADO POR ID ***");
-        ChamadoDAO ChamadoDao = DaoFactory.createChamadoDao();
-        Chamado Chamado = ChamadoDao.findById(3);
+        Chamado Chamado = ChamadoDao.findById(1);
         System.out.println(Chamado);
 
         System.out.println("*** CHAMADO POR USUÁRIO ***");
-        Usuario user = new Usuario(4, null);
-        List<Chamado> lista = ChamadoDao.findByUser(user);
+        Usuario user = new Usuario(2, null);
+        List <Chamado> lista = ChamadoDao.findByUser(user);
         for (Chamado obj : lista) {
             System.out.println(obj);
         }
 
-        System.out.println("*** CHAMADOS E USUÁRIOS ***");
-        lista = ChamadoDao.findAll();
-        for (Chamado obj : lista) {
-            System.out.println(obj);
-        }
-
+        
         System.out.println("INSERIR DADOS NA TABELA CHAMADO");
-        Chamado NovoChamado = new Chamado(0, "TesteInsert", "TESTANDO INSERT", new Date(), user);
+        Chamado NovoChamado = new Chamado(0, "TesteInsert2", "TESTANDO SEGUNDO INSERT", new Date(), user, 1, 5, 2, 2);
         ChamadoDao.insert(NovoChamado);
-        System.out.println("Chamado Aberto! Novo Protocolo: " + NovoChamado.getidchamado());
+        System.out.println("Chamado Aberto! Novo Protocolo: " + NovoChamado.getidChamado());
 
+        /*
         System.out.println("ATUALIZAR CHAMADO");
         Chamado = ChamadoDao.findById(3);
         Chamado.settituloChamado("TesteUpdate");
@@ -52,6 +49,7 @@ public class program {
         int idChamado = sc.nextInt();
         ChamadoDao.deleteById(idChamado);
         System.out.println("Deletado!");
+        */
         
     }
 

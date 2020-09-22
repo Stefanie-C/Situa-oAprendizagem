@@ -22,7 +22,7 @@ public class ConexaoBanco {
             String url = props.getProperty("dburl");
             try {
                 conn = DriverManager.getConnection(url, props);
-                System.out.println("CONECTADO");
+                System.out.println("BANCO DE DADOS CONECTADO");
             } catch (SQLException e) {
                 throw new DbException(e.getMessage());
             }
@@ -36,7 +36,7 @@ public class ConexaoBanco {
         if (conn != null) {
             try {
                 conn.close();
-                System.out.println("DESCONECTADO");
+                System.out.println("BANCO DE DADOS DESCONECTADO");
             } catch (SQLException e) {
                 throw new DbException(e.getMessage());
             }
