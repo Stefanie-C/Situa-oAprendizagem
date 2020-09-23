@@ -113,9 +113,9 @@ public class Chamado {
     /* ******************************** */
     @Override
     public String toString() {
-        return "Chamado{" + "idChamado=" + idChamado + ", tituloChamado=" + tituloChamado + ", descChamado=" + descChamado + ", data=" + data + ", usuario=" + usuario + 
-                ", idCategoriaChamado" + idCategoriaChamado + ", idSubcategoriaChamado" + idSubcategoriaChamado + 
-                ", idNivelUrgencia " + idNivelUrgencia + ", idStatusChamado" +idStatusChamado + '}';
+        return "Chamado{" + "ID CHAMADO = " + idChamado + ", TITULO = " + tituloChamado + ", DESCRIÇÃO = " + descChamado + ", DATA = " + data + ", USUARIO = " + usuario + 
+                ", CATEGORIA = " + idCategoriaChamado + ", SUBCATEGORIA = " + idSubcategoriaChamado + 
+                ", NÍVEL DE URGENCIA =  " + idNivelUrgencia + ", STATUS CHAMADO = " +idStatusChamado + '}';
     }
 
     @Override
@@ -141,6 +141,10 @@ public class Chamado {
             return false;
         }
         return true;
+    }
+
+    public void setIdStatusChamado(String josualdo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

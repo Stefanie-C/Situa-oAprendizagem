@@ -33,12 +33,18 @@ public class ChamadoDaoJDBC implements ChamadoDAO{
         PreparedStatement st = null;
         ResultSet rs = null;
         try {
-            st = conn.prepareStatement("SELECT * FROM chamado WHERE idChamado = ?");
+            st = conn.prepareStatement("SELECT chamado.*,login as login "
+                    + "FROM chamado INNER JOIN usuario "
+                    + "USING (idUsuario)"
+                    + "WHERE idChamado = ? ");
+
             st.setInt(1, idChamado);
             rs = st.executeQuery();
             if (rs.next()) {
-            Usuario user = instanciaUsuario(rs);
-            Chamado obj = instanciaChamado(rs, user);
+                Usuario user = instanciaUsuario(rs);
+                Chamado obj = instanciaChamado(rs, user);
+
+                return obj;
             }
             return null;
         } catch (SQLException e) {
@@ -46,20 +52,18 @@ public class ChamadoDaoJDBC implements ChamadoDAO{
         } finally {
             ConexaoBanco.closeStatement(st);
             ConexaoBanco.closeResultSet(rs);
+
         }
     }
     
-        @Override
-    public List <Chamado> findByUser (Usuario usuario) {
+     @Override
+         public List<Chamado> findByUser(Usuario user) {
         PreparedStatement st = null;
         ResultSet rs = null;
         try {
-            st = conn.prepareStatement("SELECT chamado.*,login as login "
-                    + "FROM chamado INNER JOIN usuario "
-                    + "USING (idUsuario)"
-                    + "WHERE idUsuario = ? ");
+            st = conn.prepareStatement("SELECT * FROM chamado WHERE idUsuario = ?");
 
-            st.setInt(1, usuario.getIduser());
+            st.setInt(1, user.getIduser());
 
             rs = st.executeQuery();
 
@@ -67,14 +71,15 @@ public class ChamadoDaoJDBC implements ChamadoDAO{
             Map<Integer, Usuario> map = new HashMap<>();
 
             while (rs.next()) {
-                Usuario user = map.get(rs.getInt("idUsuario"));
+                //Usuario user = map.get(rs.getInt("idUsuario"));
 
                 if (user == null) {
                     user = instanciaUsuario(rs);
                     map.put(rs.getInt("idUsuario"), user);
                 }
 
-                
+                Chamado obj = instanciaChamado(rs, user);
+                lista.add(obj);
             }
             return lista;
         } catch (SQLException e) {
@@ -84,8 +89,8 @@ public class ChamadoDaoJDBC implements ChamadoDAO{
             ConexaoBanco.closeResultSet(rs);
 
         }
-    }
-    
+         }
+        
     @Override
     public void insert(Chamado obj) {
         PreparedStatement st = null;
@@ -132,14 +137,13 @@ public class ChamadoDaoJDBC implements ChamadoDAO{
         try {
             st = conn.prepareStatement(
                     "UPDATE chamado "
-                    + "SET tituloChamado= ?, descChamado = ?, data = ? , usuario_idUsuario = ?"
+                    + "SET tituloChamado = ?,descChamado = ?, dataHora = ?"
                     + "WHERE idChamado = ?");
 
             st.setString(1, obj.gettituloChamado());
             st.setString(2, obj.getdescChamado());
             st.setDate(3, new java.sql.Date(obj.getdata().getTime()));
-            st.setInt(4, obj.getUsuario().getIduser());
-            st.setLong(5, obj.getidChamado());
+            st.setInt(4, (int) obj.getidChamado());
 
             st.executeUpdate();
 

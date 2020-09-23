@@ -247,3 +247,7 @@ INSERT INTO chamado VALUES
 (NULL,"Suporte Remoto", "Suporte", '2020-10-01 14:10:00', 2, 1, 1, 1, 3);
 
 select * from chamado;
+
+update chamado set tituloChamado = "TESTE NO BANCO" where idChamado = 15;
+
+select idChamado, login from chamado inner join usuario on chamado.idUsuario = idUsuario where idUsuario = 2;
