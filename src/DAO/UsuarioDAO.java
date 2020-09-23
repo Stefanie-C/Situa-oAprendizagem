@@ -6,7 +6,6 @@
 package DAO;
 
 import ModelEntities.Usuario;
-import java.util.List;
 
 public interface UsuarioDAO {
     

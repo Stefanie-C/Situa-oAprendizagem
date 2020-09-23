@@ -36,14 +36,18 @@ public class program {
             System.out.println(obj);
         }
         
+        /*
         System.out.println(" ");
         System.out.println("ABRINDO UM NOVO CHAMADO");
         Chamado NovoChamado = new Chamado(0, "TesteInsert", "TESTANDO INSERT", new Date(), user, 1, 5, 2, 2);
         ChamadoDao.insert(NovoChamado);
         System.out.println("Chamado Aberto! Novo Protocolo: " + NovoChamado.getidChamado());
+        */
         
+        /*
         System.out.println(" ");
         System.out.println("---------- MÓDULO ADMINISTRADOR ----------");
+        
         
         System.out.println(" ");
         System.out.println("ATUALIZAR UM CHAMADO");
@@ -51,14 +55,16 @@ public class program {
         Chamado.settituloChamado("Teste UPDATE");
         ChamadoDao.update(Chamado);
         System.out.println("Chamado atualizado com sucesso!");
+        */
         
+        /*
         System.out.println(" ");
         System.out.println("APAGAR CHAMADO");
         System.out.println("Digite o ID do chamado para deletar: ");
         int idChamado = sc.nextInt();
         ChamadoDao.deleteById(idChamado);
         System.out.println("Chamado Deletado!");
-        
+        */
     }
 
 }
