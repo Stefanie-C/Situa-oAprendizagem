@@ -113,9 +113,9 @@ public class Chamado {
     /* ******************************** */
     @Override
     public String toString() {
-        return "Chamado{" + "ID CHAMADO = " + idChamado + ", TITULO = " + tituloChamado + ", DESCRIÇÃO = " + descChamado + ", DATA = " + data + ", USUARIO = " + usuario + 
+        return "Chamado{" + "ID CHAMADO = " + idChamado + ", TITULO = " + tituloChamado + ", DESCRIÇÃO = " + descChamado + ", DATA = " + data + /*", USUARIO = " + usuario + 
                 ", CATEGORIA = " + idCategoriaChamado + ", SUBCATEGORIA = " + idSubcategoriaChamado + 
-                ", NÍVEL DE URGENCIA =  " + idNivelUrgencia + ", STATUS CHAMADO = " +idStatusChamado + '}';
+                ", NÍVEL DE URGENCIA =  " + idNivelUrgencia + ", STATUS CHAMADO = " +idStatusChamado + */'}';
     }
 
     @Override

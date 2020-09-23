@@ -25,25 +25,22 @@ public class program {
         
         System.out.println(" ");
         System.out.println("*** PESQUISA DE CHAMADO POR ID ***");
-        Chamado Chamado = ChamadoDao.findById(4);
+        Chamado Chamado = ChamadoDao.findById(5);
         System.out.println(Chamado);
 
         System.out.println(" ");
         System.out.println("*** PESQUISA DE CHAMADO POR USUÁRIO ***");
-        Usuario user = new Usuario(2, null);
+        Usuario user = new Usuario(1, null);
         List <Chamado> lista = ChamadoDao.findByUser(user);
         for (Chamado obj : lista) {
             System.out.println(obj);
         }
-        /*
         
         System.out.println(" ");
         System.out.println("ABRINDO UM NOVO CHAMADO");
-        Chamado NovoChamado = new Chamado(0, "TesteInsert2", "TESTANDO INSERT", new Date(), user, 1, 5, 2, 2);
+        Chamado NovoChamado = new Chamado(0, "TesteInsert", "TESTANDO INSERT", new Date(), user, 1, 5, 2, 2);
         ChamadoDao.insert(NovoChamado);
         System.out.println("Chamado Aberto! Novo Protocolo: " + NovoChamado.getidChamado());
-        
-        
         
         System.out.println(" ");
         System.out.println("---------- MÓDULO ADMINISTRADOR ----------");
@@ -51,12 +48,9 @@ public class program {
         System.out.println(" ");
         System.out.println("ATUALIZAR UM CHAMADO");
         Chamado = ChamadoDao.findById(3);
-        Chamado.settituloChamado("Teste UPDATE 21:40");
+        Chamado.settituloChamado("Teste UPDATE");
         ChamadoDao.update(Chamado);
         System.out.println("Chamado atualizado com sucesso!");
-        
-        
-        
         
         System.out.println(" ");
         System.out.println("APAGAR CHAMADO");
@@ -64,8 +58,6 @@ public class program {
         int idChamado = sc.nextInt();
         ChamadoDao.deleteById(idChamado);
         System.out.println("Chamado Deletado!");
-        */
-        
         
     }
 
